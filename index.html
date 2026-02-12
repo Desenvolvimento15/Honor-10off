@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HONOR - 10% OFF</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ================= RESET ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #111;
+            overflow-x: hidden;
+        }
+
+        /* ================= LAYOUT ================= */
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 100px 40px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 80px;
+            position: relative;
+        }
+
+        /* ================= LEFT SIDE ================= */
+
+        .left {
+            flex: 1;
+            max-width: 520px;
+        }
+
+        .badge-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .badge-top img {
+            height: 28px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        h1 span {
+            color: #2563eb;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 35px;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature img {
+            height: 38px;
+        }
+
+        .feature span {
+            font-size: 14px;
+            line-height: 1.2;
+        }
+
+        .divider {
+            width: 1px;
+            height: 40px;
+            background: #e5e5e5;
+        }
+
+        /* ================= FORM ================= */
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            font-size: 15px;
+            transition: .3s;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            outline: none;
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .checkbox input {
+            width: auto;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: #fff;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        /* ================= RIGHT SIDE ================= */
+
+        .right {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Selo */
+
+        .selo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            z-index: 10;
+        }
+
+        /* Phones */
+
+        .phone {
+            position: absolute;
+            width: 300px;
+            transition: transform .3s ease;
+        }
+
+        .phone.roxo {
+            transform: rotate(-18deg);
+            z-index: 3;
+            animation: float1 6s ease-in-out infinite;
+        }
+
+        .phone.verde {
+            transform: rotate(18deg);
+            left: 250px;
+            z-index: 2;
+            animation: float2 6s ease-in-out infinite;
+        }
+
+        /* Floating animations */
+
+        @keyframes float1 {
+            0% {
+                transform: rotate(-18deg) translateY(0px);
+            }
+
+            50% {
+                transform: rotate(-18deg) translateY(-25px);
+            }
+
+            100% {
+                transform: rotate(-18deg) translateY(0px);
+            }
+        }
+
+        @keyframes float2 {
+            0% {
+                transform: rotate(18deg) translateY(0px);
+            }
+
+            50% {
+                transform: rotate(18deg) translateY(-20px);
+            }
+
+            100% {
+                transform: rotate(18deg) translateY(0px);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:1100px) {
+
+            .container {
+                flex-direction: column;
+                text-align: center;
+                padding: 80px 30px;
+            }
+
+            .features {
+                justify-content: center;
+            }
+
+            .divider {
+                display: none;
+            }
+
+            .right {
+                margin-top: 60px;
+            }
+
+            .phone {
+                width: 320px;
+            }
+
+            .phone.verde {
+                left: 80px;
+            }
+
+            .selo {
+                top: -20px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+        }
+
+        @media(max-width:600px) {
+            .badge-top {
+                display: flex;
+                align-items: center;
+
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .phone {
+                width: 240px;
+            }
+
+            .phone.verde {
+                left: 40px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT -->
+        <div class="left">
+
+            <div class="badge-top">
+
+                <div class="features">
+
+                    <div class="feature">
+                        <img src="Frete Grátis.png">
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="feature">
+                        <img src="Entrega Rápida.png">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <h1>Garanta <span>10% OFF</span><br>no seu novo HONOR</h1>
+
+            <p class="subtitle">
+                Cadastre-se e receba sua oferta exclusiva agora mesmo.
+            </p>
+
+
+            <form id="leadForm">
+
+                <input type="text" placeholder="Nome" required>
+                <input type="text" placeholder="Sobrenome" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Telefone" required>
+
+                <div class="checkbox">
+                    <input type="checkbox" required>
+                    <label>Aceito a Política de Privacidade</label>
+                </div>
+
+                <button type="submit">QUERO MEU DESCONTO</button>
+
+            </form>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+
+            <img src="Selo 10_ OFF.png" class="selo">
+
+            <img src="HONOR Magic7 Lite (roxo)-10.png" class="phone roxo">
+            <img src="HONOR X7d 5G (verde)-07.png" class="phone verde">
+
+        </div>
+
+    </div>
+
+    <script>
+
+        document.getElementById("leadForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Cadastro realizado com sucesso!");
+            this.reset();
+        });
+
+    </script>
+
+</body>
+
+</html>
