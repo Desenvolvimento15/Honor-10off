@@ -23,6 +23,45 @@
             overflow-x: hidden;
         }
 
+        /* ================= FORM FEEDBACK ================= */
+
+.form-feedback {
+    margin-top: 12px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+    display: none;
+    animation: fadeUp .4s ease forwards;
+}
+
+.form-feedback.success {
+    display: block;
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #34d399;
+}
+
+.form-feedback.error {
+    display: block;
+    background: #fef2f2;
+    color: #7f1d1d;
+    border: 1px solid #f87171;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
         /* ================= LAYOUT ================= */
 
         .container {
@@ -412,6 +451,7 @@
                 </div>
                
                 <button type="submit">QUERO MEU CUPOM</button>
+            <div class="form-feedback" aria-live="polite"></div>
                 <p style="color: #888888; font-size: 0.7rem; margin-bottom: 2rem;">A Honor está compremetida em proteger e respeitar a sua privacidade e usaremos suas informações pessoais apenas para administrar a sua conta e fornecer os produtos e serviços que vocês nos solicitou. Ocasionalemte. Se você consentir com nossa contato por esse motivo, marque a maneira de contato.</p>
             </form>
 
@@ -448,15 +488,36 @@
 
      <footer style="font-size:0.9rem">Copyright © Honor Device Co., Ltd. 2020-2026. Todos os direitos reservados.</footer>
 
-    <script>
+<script>
+    document.getElementById("leadForm").addEventListener("submit", function (e) {
+        e.preventDefault();
 
-        document.getElementById("leadForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            alert("Cadastro realizado com sucesso!");
-            this.reset();
-        });
+        const feedback = this.querySelector(".form-feedback");
+        const email = this.querySelector("input[type='email']");
+        const checkbox = this.querySelector("input[type='checkbox']");
 
-    </script>
+        feedback.className = "form-feedback";
+        feedback.style.display = "block";
+
+        if (!email.value || !checkbox.checked) {
+            feedback.classList.add("error");
+            feedback.innerText = "Por favor, preencha o e-mail e aceite o Aviso de Privacidade.";
+            return;
+        }
+
+        // Simulação de sucesso
+        feedback.classList.add("success");
+        feedback.innerText = "✅ Cadastro realizado com sucesso! Seu cupom será enviado por e-mail.";
+
+        this.reset();
+
+        // Opcional: esconder mensagem após alguns segundos
+        setTimeout(() => {
+            feedback.style.display = "none";
+        }, 6000);
+    });
+</script>
+
 
 </body>
 </html>
