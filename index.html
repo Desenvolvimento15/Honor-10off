@@ -169,6 +169,15 @@
             justify-content: center;
         }
 
+    footer {
+    width: 100%;
+    padding: 0.3rem;
+    text-align: center;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+    background: #fff;
+    }
+
         /* Selo */
 .selo {
     position: absolute;
@@ -307,13 +316,36 @@
 
 @media (max-width:600px) {
 
+.selo {
+        width: 112px;
+    }
+
+
+    .selo {
+        top: 20rem;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        width: 110px;
+    }
+
    .desk-img{
     display: none;
    }
 
    .mob-img{
     display: block;
+    width: 10rem;
    }
+
+   .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+    justify-content: center;
+}
 
     .right {
         height: 300px;
@@ -332,9 +364,7 @@
         transform: translateX(-42%) rotate(-5deg);
     }
 
-    .selo {
-        width: 85px;
-    }
+
 
     h1 {
         font-size: 30px;
@@ -354,7 +384,7 @@
 
 }
 
-    </style>
+</style>
 </head>
 
 <body>
@@ -371,7 +401,6 @@
 
             <p class="subtitle">de 10% OFF na sua primeira compra.</p>
 
-
             <form id="leadForm">
                 <input type="email" placeholder="E-mail:" required>
           
@@ -384,7 +413,6 @@
                
                 <button type="submit">QUERO MEU CUPOM</button>
                 <p style="color: #888888; font-size: 0.7rem; margin-bottom: 2rem;">A Honor está compremetida em proteger e respeitar a sua privacidade e usaremos suas informações pessoais apenas para administrar a sua conta e fornecer os produtos e serviços que vocês nos solicitou. Ocasionalemte. Se você consentir com nossa contato por esse motivo, marque a maneira de contato.</p>
-
             </form>
 
             <div class="badge-top">
@@ -416,8 +444,9 @@
             <img src="HONOR X7d 5G (verde)-07.png" class="phone verde">
 
         </div>
-
     </div>
+
+     <footer style="font-size:0.9rem">Copyright © Honor Device Co., Ltd. 2020-2026. Todos os direitos reservados.</footer>
 
     <script>
 
