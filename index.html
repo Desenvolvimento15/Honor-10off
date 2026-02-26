@@ -36,7 +36,7 @@
     animation: fadeUp .60s ease forwards;
 }
 
-.form-feedback.success {
+.form-feedback.enviado {
     display: block;
     background: #ecfdf5;
     color: #065f46;
@@ -491,6 +491,9 @@
 
 
     <footer style="font-size:0.9rem">Copyright © Honor Device Co., Ltd. 2020-2026. Todos os direitos reservados.</footer>
+
+
+    
 <script>
     document.getElementById("leadForm").addEventListener("submit", function (e) {
         e.preventDefault();
@@ -508,8 +511,23 @@
             return;
         }
 
-        // Simulação de sucesso
-        feedback.classList.add("success");
+        // --- Integração com a edrone ---
+        window._edrone = window._edrone || {};
+        window._edrone.email = email.value;
+        window._edrone.action_type = 'subscribe'; // Define a ação como inscrição
+        window._edrone.subscriber_status = '1';   // Confirma o opt-in na newsletter
+        window._edrone.customer_tags = 'Boas Vindas HONOR - 10% OFF'; // Atribui a tag da campanha
+
+        // Verifica se a edrone está instanciada e dispara o envio
+        if (typeof window._edrone.init === 'function') {
+            window._edrone.init();
+        } else {
+            console.warn("Script principal da edrone não encontrado. Certifique-se de que o tracker está no <head>.");
+        }
+        // -------------------------------
+
+        // Feedback de sucesso na interface
+        feedback.classList.add("enviado");
         feedback.innerText = "✅ Cadastro realizado com sucesso! Seu cupom será enviado por e-mail.";
 
         this.reset();
